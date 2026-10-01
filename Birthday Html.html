@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday 🎂</title>
+<style>
+:root{--a:#d6336c;--b1:#fff0f5;--b2:#ffd6e4;--ink:#5a1a35;--card:rgba(255,255,255,.72);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box}
+body{margin:0;height:100%;overflow:hidden;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:linear-gradient(160deg,var(--b1),var(--b2));transition:background .8s,color .8s}
+body.night{background:#0d1b3d;color:#fff}
+.stage{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+.step{display:none;flex-direction:column;align-items:center;gap:14px;max-width:420px;width:100%}
+.step.on{display:flex;animation:in .6s}
+@keyframes in{from{opacity:0;transform:translateY(12px)}}
+h1,h2{margin:0}h1{font-size:clamp(38px,11vw,58px)}h2{font-size:28px}p{margin:0;opacity:.8}
+.btn{border:0;background:var(--a);color:#fff;padding:14px 28px;border-radius:999px;font:600 16px system-ui,sans-serif;box-shadow:0 8px 20px -8px var(--a);cursor:pointer}
+.btn.ghost{background:none;color:inherit;box-shadow:none;border:1px solid var(--a)}
+.card{background:var(--card);border-radius:20px;padding:22px;box-shadow:0 10px 30px -15px rgba(0,0,0,.35);width:100%}
+#lights{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;display:flex;justify-content:space-around;pointer-events:none}
+.bulb{width:12px;height:18px;border-radius:50%;background:#556;margin-top:6px;transition:.6s}
+.bulb:nth-child(4n+1){color:#ff6b9d}.bulb:nth-child(4n+2){color:#ffd166}.bulb:nth-child(4n+3){color:#6bcBff}.bulb:nth-child(4n){color:#9be564}
+body.lit .bulb{background:currentColor;box-shadow:0 0 14px 4px currentColor}
+.balloon{position:fixed;bottom:-100px;width:54px;height:68px;border-radius:50% 50% 46% 46%;animation:rise var(--d) ease-in forwards;cursor:pointer}
+.balloon:after{content:"";position:absolute;left:50%;top:100%;height:50px;border-left:1px solid rgba(0,0,0,.25)}
+@keyframes rise{to{transform:translateY(-125vh)}}
+#cakeWrap{touch-action:none;width:100%;display:flex;justify-content:center}
+.half{transition:transform 1s}.cut #hl{transform:translate(-12px,2px) rotate(-3deg)}.cut #hr{transform:translate(12px,2px) rotate(3deg)}
+.f1{fill:var(--a)}.f2{fill:#fff}
+.hide{visibility:hidden}
+.wish{cursor:pointer;min-height:84px;display:grid;place-items:center;font-size:18px}
+.conf{position:fixed;top:-14px;width:8px;height:12px;animation:fall 3s linear forwards;z-index:9}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+.letter{text-align:left;line-height:1.6}.letter p{margin:0 0 10px;opacity:1}
+#pal{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));display:flex;gap:6px;align-items:center;z-index:20}
+#pal i{width:22px;height:22px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3);cursor:pointer;display:none}
+#pal.open i{display:block}#pal b{cursor:pointer;font-size:22px}
+</style></head><body>
+<div id="lights"></div>
+<div class="stage">
+
+<section class="step on" id="s0">
+ <p>Happy birthdayyy 🎈</p>
+ <h2>I made this for you.<br>Do you wanna see it?</h2>
+ <div style="display:flex;gap:10px;margin-top:6px">
+  <button class="btn" onclick="go(1)">Yes</button>
+  <button class="btn ghost" id="no">No</button>
+ </div>
+</section>
+
+<section class="step" id="s1">
+ <p>It's a little dark in here…</p>
+ <button class="btn" onclick="go(2)">Turn on the lights</button>
+</section>
+
+<section class="step" id="s2">
+ <h1>Happy Birthday</h1>
+ <p>A tiny celebration page made with lots of love.</p>
+ <button class="btn" id="bb" onclick="balloons()">Blow the balloons</button>
+</section>
+
+<section class="step" id="s3">
+ <h2>Cake time</h2>
+ <p>Drag across the cake to cut it</p>
+ <div id="cakeWrap"><svg id="cs" viewBox="0 0 200 150" width="280" style="--fl:1">
+  <defs>
+   <g id="c">
+    <ellipse cx="100" cy="128" rx="92" ry="14" fill="#fff" opacity=".85"/>
+    <rect class="f1" x="30" y="70" width="140" height="56" rx="10"/>
+    <path class="f2" d="M30 80q10 14 23 0q10 14 23 0q10 14 24 0q10 14 23 0q10 14 24 0q10 14 23 0v-10h-140z"/>
+    <rect x="96" y="40" width="8" height="30" rx="2" fill="#ffe08a"/>
+    <path d="M100 22q8 10 0 18q-8-8 0-18z" fill="#ffb300" style="opacity:var(--fl)"/>
+   </g>
+   <clipPath id="lc"><rect x="0" y="0" width="100" height="150"/></clipPath>
+   <clipPath id="rc"><rect x="100" y="0" width="100" height="150"/></clipPath>
+  </defs>
+  <g class="half" id="hl" clip-path="url(#lc)"><use href="#c"/></g>
+  <g class="half" id="hr" clip-path="url(#rc)"><use href="#c"/></g>
+ </svg></div>
+ <button class="btn hide" id="toWish" onclick="go(4)">Make a wish</button>
+</section>
+
+<section class="step" id="s4">
+ <h2>Make a wish</h2>
+ <p>Close your eyes, think of something lovely, then blow out the candle.</p>
+ <svg id="ws" viewBox="0 0 200 150" width="240" style="--fl:1"><use href="#c"/></svg>
+ <button class="btn" onclick="wish()">I made my wish</button>
+</section>
+
+<section class="step" id="s5">
+ <h2>Reveal your birthday wishes</h2>
+ <p>Tap each one</p>
+ <div class="card wish" onclick="flip(this)" data-t="May this year be softer, brighter and full of good surprises.">🎁</div>
+ <div class="card wish" onclick="flip(this)" data-t="May everything you've been working toward finally say yes.">🌷</div>
+ <div class="card wish" onclick="flip(this)" data-t="May you always feel as loved as you make other people feel.">💌</div>
+ <button class="btn hide" id="toLetter" onclick="go(6)">Open your letter</button>
+</section>
+
+<section class="step" id="s6">
+ <div class="card letter">
+  <p><b><span id="nm"></span>,</b></p>
+  <p>Happy birthday! Meri jaaan, aaj aap kay liye bahut zyada special din hai.</p>
+  <p>Inshallah aaj ka din aur aapkay aanay walay saaray din bahut zyada achay guzrain gay, aur main umeed karta hoon kay aapko mujh se koi bhi na chheenay.</p>
+  <p>Bas meri jaan, meri yehi dua hai kay aap hamesha zindagi mein khush rahein. 🤍</p>
+  <p style="text-align:right">Hamesha aapka,<br><b id="fr"></b></p>
+ </div>
+ <button class="btn ghost" onclick="location.reload()">Watch again</button>
+</section>
+
+</div>
+<div id="pal"></div>
+<script>
+const NAME="Meri jaan", FROM="Humza";
+const PAL=[
+ {n:"Rose",a:"#d6336c",b1:"#fff0f5",b2:"#ffd6e4",ink:"#5a1a35"},
+ {n:"Lavender",a:"#7c4dff",b1:"#f5f0ff",b2:"#e0d4ff",ink:"#2e1a5e"},
+ {n:"Mint",a:"#12a37f",b1:"#effcf6",b2:"#c8f2e2",ink:"#0f4a3a"},
+ {n:"Peach",a:"#f2784b",b1:"#fff4ec",b2:"#ffd9c2",ink:"#5a2a14"},
+ {n:"Sky",a:"#2f80ed",b1:"#eef6ff",b2:"#cfe4ff",ink:"#12335e"},
+ {n:"Butter & Gold",a:"#c8962a",b1:"#fffbea",b2:"#ffecb0",ink:"#4a3510"}];
+const $=id=>document.getElementById(id);
+$("nm").textContent=NAME;$("fr").textContent=FROM;
+$("lights").innerHTML='<div class="bulb"></div>'.repeat(14);
+function setPal(p){const s=document.documentElement.style;s.setProperty("--a",p.a);s.setProperty("--b1",p.b1);s.setProperty("--b2",p.b2);s.setProperty("--ink",p.ink)}
+const pal=$("pal");
+PAL.forEach(p=>{const d=document.createElement("i");d.title=p.n;d.style.background=p.a;d.onclick=()=>setPal(p);pal.appendChild(d)});
+const t=document.createElement("b");t.textContent="🎨";t.onclick=()=>pal.classList.toggle("open");pal.appendChild(t);
+function go(n){
+ document.querySelectorAll(".step").forEach((e,i)=>e.classList.toggle("on",i===n));
+ document.body.classList.toggle("night",n===1);
+ document.body.classList.toggle("lit",n>=2);
+}
+const no=$("no");
+no.onmouseenter=no.onclick=()=>{no.style.transform=`translate(${Math.random()*80-40}px,${Math.random()*60-30}px)`;no.textContent="Pleaseee 🥺"};
+function balloons(){
+ const cols=["#ff6b9d","#ffd166","#6bcbff","#9be564","#c8a2ff","#ff9f6b"];
+ for(let i=0;i<14;i++){const b=document.createElement("div");b.className="balloon";
+  b.style.cssText=`left:${Math.random()*92}%;background:${cols[i%6]};--d:${4+Math.random()*3}s;animation-delay:${Math.random()*1.2}s`;
+  b.onclick=()=>b.remove();document.body.appendChild(b);setTimeout(()=>b.remove(),9000)}
+ const bb=$("bb");bb.textContent="Cut the cake";bb.onclick=()=>go(3);
+}
+let cutDone=false,sx=0,sy=0,down=false;
+function cut(){if(cutDone)return;cutDone=true;$("cs").classList.add("cut");setTimeout(()=>$("toWish").classList.remove("hide"),900)}
+const cw=$("cakeWrap");
+cw.onpointerdown=e=>{down=true;sx=e.clientX;sy=e.clientY};
+cw.onpointermove=e=>{if(down&&Math.hypot(e.clientX-sx,e.clientY-sy)>110)cut()};
+cw.onpointerup=cw.onpointercancel=()=>down=false;
+cw.onclick=cut;
+function confetti(){const c=["#ff6b9d","#ffd166","#6bcbff","#9be564","#c8a2ff"];
+ for(let i=0;i<60;i++){const d=document.createElement("div");d.className="conf";
+  d.style.cssText=`left:${Math.random()*100}%;background:${c[i%5]};animation-delay:${Math.random()}s`;
+  document.body.appendChild(d);setTimeout(()=>d.remove(),4500)}}
+function wish(){$("ws").style.setProperty("--fl",0);confetti();setTimeout(()=>go(5),2200)}
+let opened=0;
+function flip(el){if(el.dataset.o)return;el.dataset.o=1;el.textContent=el.dataset.t;if(++opened===3)$("toLetter").classList.remove("hide")}
+</script>
+</body></html>
